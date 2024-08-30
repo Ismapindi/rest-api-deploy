@@ -5,6 +5,12 @@ const cors = require('cors')
 const movies = require('./movies.json')
 const { validateMovie, validatePartialMovie } = require('./schemas/movies')
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'index.html'));  // si tienes un index.html en la carpeta 'web'
+  // o
+  // res.json({ message: 'Bienvenido a la API de películas' });  // si prefieres devolver JSON
+});
+
 const app = express()
 app.use(express.json())
 app.use(cors({
